@@ -1,0 +1,122 @@
+//
+//  PrefixHeader.pch
+//  MyBear
+//
+//  Created by 紫平方 on 16/9/30.
+//  Copyright © 2016年 bear. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#define ApplicationFrame  [[UIScreen mainScreen] applicationFrame]
+#define ApplicationSize   [[UIScreen mainScreen] applicationFrame].size
+#define ApplicationWidth  [[UIScreen mainScreen] applicationFrame].size.width
+#define ApplicationHeight [[UIScreen mainScreen] applicationFrame].size.height
+#define Screen_Width                 ([UIScreen mainScreen].bounds.size.width)
+#define Screen_Height                ([UIScreen mainScreen].bounds.size.height)
+
+#define KKShowNoticeMessage(string)            ([NSObject showNoticeMessage:string])
+
+#define Window0   ((UIWindow*)[[[UIApplication sharedApplication] windows] objectAtIndex:0])
+
+#define Lfont(a) [UIFont systemFontOfSize:a]
+
+#define Limage(a) [UIImage imageNamed:a]
+#import "Tion.h"
+#define LTag(a) (id)[cell.contentView viewWithTag:a]
+
+#import "AddViewController.h"
+#import "LoginViewController.h"
+
+
+#import <MapKit/MapKit.h>
+#import "KKExtension.h"
+#import "UserManager.h"
+#import "KKUserDefaultsManager.h"
+#import "NetWorkSender_Basic.h"
+#import "KKAlertView.h"
+#import "MBProgressHUD.h"
+#import "Define.h"
+#import "AppDefine.h"
+#import "LManyButton.h"
+#import "KKThemeManager.h"
+//#import "KKActionSheet.h"
+#import "BaseTableViewCell.h"
+#import "BaseTableViewController.h"
+#import "KKViewController.h"
+#import "BaseViewController.h"
+#import "FMDB.h"
+#define myBackgroundColor [UIColor whiteColor]
+#define myThemeColor [UIColor colorWithRed:0.6 green:0.93 blue:0.54 alpha:1]
+
+#define MainTheme_GreenColor [UIColor colorWithRed:0.55 green:0.69 blue:0.29 alpha:1]
+
+#define UserInfoKey @"UserInfoKey"
+#define LUserDefault [UserManager defaultSender]
+
+#define LUserInor(a) [[UserManager defaultSender] objectForKey:a]
+
+#import "Net.h"
+
+
+#define UserKeyToken @"UserKeyToken"
+#define UserKeyUserId @"user_id"//用户id
+#define UserKeynick_name @"nick_name"//用户昵称
+#define UserKeyphoto @"photo"//头像
+#define UserKeyis_certified @"is_certified"//认证信息，0未认证，1个人认证，2企业认证
+#define Userqr_code @"qr_code"//二维码
+#define UserSex @"sex"//性别，1男，2女，0保密
+#define USerpone @"phone"//电话
+#define Usercompany @"company"//公司
+#define USerjob @"job"//职位
+#define Useraddress @"address"//所在地
+#define Userdetail_address @"detail_address"//详细地址
+#define Useris_changename @"is_changename"//为0表示不能修改名称，提示修改要付相应积分
+
+#define lhu [MBProgressHUD showHUDAddedTo:Window0 animated:YES]
+
+#define LString(a) [NSString stringWithFormat:@"%ld",(long)a]
+
+#define lObserveNet(a) [self observeKKRequestNotificaiton:a]
+
+#define lSender [Net defaultSender]
+
+#define lyellow [UIColor colorWithRed:0.97 green:0.84 blue:0.61 alpha:1]
+
+#define RGB_Color(r,g,b)             [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:1]
+
+
+#import "LColorText.h"
+#import "LUITabBarController.h"
+#import "UIImageView+WebCache.h"
+#import "UIButton+WebCache.h"
+#define NSNotificationRecieveData @"NSNotificationRecieveData"
+//#import "KKDatePickerView.h"
+//#import "KKDataPickerView.h"
+#define mycolor @"mycolor"
+#define apiKey @"7c9f158028adc6e788d443de1bbba82a"
+
+#define BACKGROUNDCOLOR myBackgroundColor
+
+//#import "BaseTableViewCell.h"
+//#import "BaseTableViewController.h"
+//#import "BaseViewController.h"
+
+#define kAppServerError   @"服务器返回有误"
+#define kAppRequestFailed @"网络请求失败"
+
+#define KKDateFormatter01 @"yyyy-MM-dd HH:mm:ss"
+#define KKDateFormatter02 @"yyyy-MM-dd HH:mm"
+#define KKDateFormatter03 @"yyyy-MM-dd HH"
+#define KKDateFormatter04 @"yyyy-MM-dd"
+#define KKDateFormatter05 @"yyyy-MM"
+#define KKDateFormatter06 @"MM-dd"
+#define KKDateFormatter07 @"HH:mm"
+
+
+
+#endif /* PrefixHeader_pch */

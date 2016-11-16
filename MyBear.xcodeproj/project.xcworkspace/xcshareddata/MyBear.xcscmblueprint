@@ -1,0 +1,25 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "67cc7f8a-2f7a-4569-879d-3bbe825c180d",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "67cc7f8a-2f7a-4569-879d-3bbe825c180d" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "67cc7f8a-2f7a-4569-879d-3bbe825c180d" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "E5599B32-F5AC-417C-A443-BF5350D827A2",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "67cc7f8a-2f7a-4569-879d-3bbe825c180d" : "%E7%9C%8B%E5%90%A6SVN\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "MyBear",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "IOS\/kanfou\/MyBear.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "svn:\/\/101.201.75.108\/kanfou",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "67cc7f8a-2f7a-4569-879d-3bbe825c180d"
+    }
+  ]
+}
