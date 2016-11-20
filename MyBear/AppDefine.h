@@ -18,6 +18,8 @@
 
 #define ServerIP @"http://120.24.45.191:8888"
 
+//#define ServerIP @"http://120.24.45.191:9000"
+
 #define ServerIpImage @"http://apikanfou.youkeyun.com/"
 
 #define APP_ID   @""

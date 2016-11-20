@@ -11,4 +11,6 @@
 
 @interface BaseViewController : KKViewController
 - (void)isShowCenterBtn:(BOOL)isShow;
++ (NSDictionary *)dictionaryWithJsonString:(NSString *)jsonString;
++ (NSString*)convertToJSONData:(id)infoDict;
 @end

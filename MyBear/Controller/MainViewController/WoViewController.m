@@ -62,6 +62,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    UINavigationController *nav=[[UINavigationController alloc]init];
+    LoginViewController *viewController = [[LoginViewController alloc]init];
+    nav.viewControllers=@[viewController];
+    [UIApplication sharedApplication].keyWindow.rootViewController=nav;
+
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

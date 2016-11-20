@@ -11,6 +11,7 @@
 @interface AddViewController : BaseViewController <UITableViewDataSource,UITableViewDelegate>
 @property(nonatomic,retain)UITableView *myTableView;
 @property(nonatomic,retain)NSMutableArray *dataSource;
+@property(nonatomic,retain)NSMutableArray *dataSource1;
 @property(nonatomic,retain)NSMutableArray *information;
 
 @end

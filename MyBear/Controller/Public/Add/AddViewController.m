@@ -14,21 +14,58 @@
 
 @implementation AddViewController{
     NSInteger selectIndex;
+    NSMutableDictionary *amudic;
 }
 
 @synthesize myTableView;
 @synthesize information;
 @synthesize dataSource;
+@synthesize dataSource1;
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self initUI];
+
+    amudic=[[NSMutableDictionary alloc]init];
+    [MBProgressHUD showHUDAddedTo:Window0 animated:YES];
+    lObserveNet(CMD_RegistGetToken);
+    [lSender getToken];
+
+    
+}
+
+- (void)NavRightButtonClick{
+    
+   NSDictionary *dic = [amudic validDictionaryForKey:@"zhanghao"];
+    
+    NSMutableDictionary *adic=[[NSMutableDictionary alloc]initWithDictionary:dic];
+    [adic setObject:information[1] forKey:information[0]];
+
+    [amudic setObject:adic forKey:@"zhanghao"];
+    
+    
+    [MBProgressHUD showHUDAddedTo:Window0 animated:YES];
+    
+    
+    lObserveNet(CMDsend);
+    
+    [lSender post:[BaseViewController convertToJSONData:amudic]];
+
+    
+    
+    
+    
+    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)initUI{
     self.title=@"Regist";
+    [self setNavRightButtonTitle:@"Regist" selector:@selector(NavRightButtonClick)];
+    
+    dataSource1=[[NSMutableArray alloc]init];
     dataSource=[[NSMutableArray alloc]init];
     information=[[NSMutableArray alloc]init];
     [dataSource addObjectsFromArray:@[@"UserName",@"PassWord"]];
@@ -95,6 +132,90 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+
+#pragma mark ==================================================
+#pragma mark == 【网络】与【数据处理】
+#pragma mark ==================================================
+- (void)KKRequestRequestFinished:(NSDictionary *)requestResult
+                  httpInfomation:(NSDictionary *)httpInfomation
+               requestIdentifier:(NSString *)requestIdentifier
+{
+    [MBProgressHUD hideAllHUDsForView:Window0 animated:YES];
+    if ([requestIdentifier isEqualToString: CMD_RegistGetToken]) {
+        [self unobserveKKRequestNotificaiton:requestIdentifier];
+        if (requestResult && [requestResult isKindOfClass:[NSDictionary class]]) {
+            NSString *code = [requestResult stringValueForKey:@"retcode"];
+            NSString *data = [requestResult objectForKey:@"data"];
+            NSString *msg=[requestResult stringValueForKey:@"msg"];
+            if ([NSString isStringNotEmpty:code] && [[code trimLeftAndRightSpace] integerValue]==0) {
+                if (data) {
+                    
+                    [amudic removeAllObjects];
+                    
+                    [amudic addEntriesFromDictionary:[NSDictionary dictionaryFromJSONString:data]];
+                    [myTableView reloadData];
+                    
+                }else{
+                    //无数据
+                }
+            }
+            else{
+                KKShowNoticeMessage(msg);
+            }
+        }else{
+            
+            KKShowNoticeMessage(@"网络错误");
+        }
+    }
+    
+    if ([requestIdentifier isEqualToString: CMDsend]) {
+        [self unobserveKKRequestNotificaiton:requestIdentifier];
+        if (requestResult && [requestResult isKindOfClass:[NSDictionary class]]) {
+            NSString *code = [requestResult stringValueForKey:@"retcode"];
+            NSDictionary *data = [requestResult objectForKey:@"data"];
+            NSString *msg=[requestResult stringValueForKey:@"msg"];
+            if ([NSString isStringNotEmpty:code] && [[code trimLeftAndRightSpace] integerValue]==0) {
+                KKShowNoticeMessage(@"success");
+                [self.navigationController popViewControllerAnimated:YES];
+            }
+            else{
+                KKShowNoticeMessage(msg);
+            }
+        }else{
+            
+            KKShowNoticeMessage(@"网络错误");
+        }
+    }
+
+}
+
+- (NSArray *)stringToJSON:(NSString *)jsonStr {
+    if (jsonStr) {
+        id tmp = [NSJSONSerialization JSONObjectWithData:[jsonStr dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments | NSJSONReadingMutableLeaves | NSJSONReadingMutableContainers error:nil];
+        
+        if (tmp) {
+            if ([tmp isKindOfClass:[NSArray class]]) {
+                
+                return tmp;
+                
+            } else if([tmp isKindOfClass:[NSString class]]
+                      || [tmp isKindOfClass:[NSDictionary class]]) {
+                
+                return [NSArray arrayWithObject:tmp];
+                
+            } else {
+                return nil;
+            }
+        } else {
+            return nil;
+        }
+        
+    } else {
+        return nil;
+    }
 }
 
 /*

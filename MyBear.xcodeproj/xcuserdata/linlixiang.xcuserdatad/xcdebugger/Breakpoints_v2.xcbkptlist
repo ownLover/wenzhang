@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyBear/Controller/MainViewController/XieViewController.m"
-            timestampString = "500918380.85554"
+            timestampString = "501340205.90583"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
             landmarkName = "-RightButtonClick"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyBear/Controller/MainViewController/XieViewController.m"
-            timestampString = "500918380.85554"
+            timestampString = "501340205.90583"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "90"
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyBear/Controller/MainViewController/XieViewController.m"
-            timestampString = "500918380.85554"
+            timestampString = "501340205.90583"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "78"
-            endingLineNumber = "78"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
             landmarkName = "-RightButtonClick"
             landmarkType = "7">
          </BreakpointContent>
@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyBear/Controller/MainViewController/XieViewController.m"
-            timestampString = "500918376.999706"
+            timestampString = "501340205.90583"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
+            startingLineNumber = "141"
+            endingLineNumber = "141"
             landmarkName = "-RightButtonClick"
             landmarkType = "7">
          </BreakpointContent>

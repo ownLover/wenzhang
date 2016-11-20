@@ -18,6 +18,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+    lObserveNet(CMDsend);
+
+//    [lSender post:[BaseViewController convertToJSONData:@{@"zhanghao":@{@"123":@"123"}}]];
 
     
     UINavigationController *nav=[[UINavigationController alloc]init];

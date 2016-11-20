@@ -37,4 +37,14 @@
     
 }
 
+#define cmdpost  @"cmdpost"
+- (void)postImg:(NSString *)aimg{
+    BaseRequestParam *parm = [[BaseRequestParam alloc] init];
+    parm.urlString = @"http://120.24.45.191:9000/sendpicture";
+    parm.method = HTTPMethod_POST;
+    [parm addFile:aimg forKey:@"data"];
+    [self sendRequestWithParam:parm requestIndentifier:cmdpost];
+
+}
+
 @end

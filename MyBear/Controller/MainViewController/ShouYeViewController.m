@@ -7,7 +7,7 @@
 //
 
 #import "ShouYeViewController.h"
-
+#import "SDImageCache.h"
 @interface ShouYeViewController ()
 
 @end
@@ -19,13 +19,10 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    NSArray *arr=[LUserDefault objectForKey:@"value"];
+    [MBProgressHUD showHUDAddedTo:Window0 animated:YES];
+    lObserveNet(CMD_RegistGetToken);
+    [lSender getToken];
 
-    if ([arr isNotEmptyArray]) {
-        [dataSource removeAllObjects];
-        [dataSource addObjectsFromArray:arr];
-        [myTableView reloadData];
-    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
@@ -88,7 +85,7 @@
             make.top.offset=10;
             make.left.offset=10;
             make.right.offset=-10;
-            make.height.offset=50;
+            make.height.offset=150;
         }];
 
         UILabel *lab = [[UILabel alloc]init];
@@ -108,15 +105,10 @@
     }
     UIImageView *img=LTag(100);
     NSDictionary *adic=dataSource[indexPath.row];
-    NSString *string=[adic objectForKey:@"img"];
-    NSData *data1 = [string dataUsingEncoding:NSUTF8StringEncoding];
 
     
-    NSData *data=data1;
     
-    UIImage *aimg=[[UIImage alloc]initWithData:data];
-    
-    [img setImage:aimg];
+    [img sd_setImageWithURL:[NSURL URLWithString:[adic objectForKey:@"img"]]];
     
     UILabel *lab=LTag(200);
     lab.text=[adic objectForKey:@"text"];
@@ -175,7 +167,11 @@
             if ([NSString isStringNotEmpty:code] && [[code trimLeftAndRightSpace] integerValue]==0) {
                 if (data) {
                     [dataSource removeAllObjects];
-                    [dataSource addObjectsFromArray:[self stringToJSON:data]];
+                    
+                    ;
+                    
+                    NSDictionary *Dic=  [NSDictionary dictionaryFromJSONString:data];
+                    [dataSource addObjectsFromArray:[Dic validArrayForKey:@"shuoshuo"]];
                     [myTableView reloadData];
                 }else{
                     //无数据

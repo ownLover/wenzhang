@@ -23,4 +23,9 @@
 - (void)post:(NSString *)string;
 
 
+#define urlpost @"sendpicture"
+#define cmdpost  @"cmdpost"
+- (void)postImg:(NSString *)aimg;
+
+
 @end
