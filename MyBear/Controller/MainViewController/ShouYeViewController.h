@@ -8,7 +8,7 @@
 
 #import "BaseViewController.h"
 
-@interface ShouYeViewController : BaseViewController <UITableViewDataSource,UITableViewDelegate>
+@interface ShouYeViewController : BaseViewController <UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate,UIAlertViewDelegate>
 @property(nonatomic,retain)UITableView *myTableView;
 @property(nonatomic,retain)NSMutableArray *dataSource;
 @property(nonatomic,retain)NSMutableDictionary *information;

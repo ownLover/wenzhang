@@ -134,7 +134,7 @@
     
     lObserveNet(CMDsend);
     
-    [dataSource addObject:@{@"text":_tf.text,@"img":upPath}];
+    [dataSource addObject:@{@"text":_tf.text,@"img":upPath,@"name":LUserInor(@"nowName")}];
 
 
     [tempDic setObject:dataSource forKey:@"shuoshuo"];

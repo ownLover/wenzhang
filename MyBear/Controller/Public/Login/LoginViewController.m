@@ -36,6 +36,9 @@
    NSDictionary *dic = [amudic validDictionaryForKey:@"zhanghao"];
     NSString *pwd=[dic objectForKey:_nameTf.text];
     if (pwd&&[pwd isEqualToString:_pwdTf.text]) {
+        
+        [LUserDefault setObject:_nameTf.text forKey:@"nowName"];
+        
         MainViewController *viewController = [[MainViewController alloc]init];
         [self.navigationController pushViewController:viewController animated:YES];
 

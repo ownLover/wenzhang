@@ -170,7 +170,7 @@
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     CGSize size = [title sizeWithFont:NavigationBarButtonTitleFont maxWidth:ApplicationWidth];
     button.frame = CGRectMake(0, 0, size.width+28, 44);
-    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
 
     if (title) {
         [button setTitle:title forState:UIControlStateNormal];
